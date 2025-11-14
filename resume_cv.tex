@@ -1,0 +1,45 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Phemelo Rutlokoane CV
+% XeLaTeX Template
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt, a4paper]{awesome-cv}
+
+\geometry{left=2cm, top=1.5cm, right=2cm, bottom=2cm, footskip=.5cm}
+\fontdir[fonts/]
+
+% ---- Steelblue color theme ----
+\definecolor{awesome-steelblue3}{HTML}{4F94CD}
+\definecolor{awesome-steelblue2}{HTML}{6CA6CD}
+\definecolor{awesome-steelblue4}{HTML}{36648B}
+\definecolor{awesome-darkgray}{HTML}{333333}
+\definecolor{awesome-black}{HTML}{000000}
+\colorlet{awesome}{awesome-steelblue3}
+\colorlet{text}{awesome-black}
+\colorlet{graytext}{awesome-steelblue3}
+
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+%%%%% Personal Info %%%%%
+\name{Phemelo M.}{Rutlokoane}
+\address{1569 Molotlegi street, Mapetla, Soweto, 1818, South Africa}
+\mobile{063 521 9837}
+\email{Phemelorutlokoane001@icloud.com}
+\github{Phemelo-R}
+\position{Biodiversity \& Conservation Biology}
+\quote{“If you do what you've always done, you'll get what you've always gotten” - Tony Robbins}
+
+% Set footer
+\makecvfooter{\today}{Phemelo Rutlokoane~~~·~~~CV}{\thepage}
+
+\begin{document}
+\makecvheader
+
+%%% CV/Resume Content
+\input{cv-sections/summary.tex}
+\input{cv-sections/education.tex}
+\input{cv-sections/experience.tex}
+\input{cv-sections/skills.tex}
+\input{cv-sections/references.tex}
+
+\end{document}
