@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phemelo Rutlokoane — CV</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --forest: #1b3a2f;
+    --moss: #2d5a40;
+    --sage: #4a7c59;
+    --fern: #6b9e72;
+    --cream: #f4f0e6;
+    --parchment: #ede8d8;
+    --ink: #1a1a18;
+    --muted: #5a5a52;
+    --gold: #b8945a;
+  }
+
+  html, body {
+    width: 210mm;
+    min-height: 297mm;
+    font-family: 'DM Sans', sans-serif;
+    background: white;
+    color: var(--ink);
+    font-size: 9.5pt;
+    line-height: 1.5;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    display: grid;
+    grid-template-columns: 68mm 1fr;
+    overflow: hidden;
+  }
+
+  /* LEFT SIDEBAR */
+  .sidebar {
+    background: var(--forest);
+    color: var(--cream);
+    padding: 10mm 7mm 8mm 7mm;
+    display: flex;
+    flex-direction: column;
+    gap: 6mm;
+  }
+
+  .name-block {
+    border-bottom: 0.5px solid rgba(244,240,230,0.3);
+    padding-bottom: 5mm;
+  }
+
+  .name-block .first { 
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22pt;
+    font-weight: 600;
+    line-height: 1.1;
+    color: #f4f0e6;
+    letter-spacing: -0.02em;
+  }
+
+  .name-block .last {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22pt;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--fern);
+    line-height: 1.1;
+  }
+
+  .name-block .title {
+    font-size: 7pt;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    color: rgba(244,240,230,0.65);
+    text-transform: uppercase;
+    margin-top: 3mm;
+  }
+
+  .section-label {
+    font-size: 6.5pt;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--fern);
+    margin-bottom: 2.5mm;
+    padding-bottom: 1.5mm;
+    border-bottom: 0.5px solid rgba(107,158,114,0.4);
+  }
+
+  .contact-item {
+    font-size: 8pt;
+    color: rgba(244,240,230,0.82);
+    margin-bottom: 2mm;
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .contact-icon {
+    color: var(--fern);
+    font-size: 8pt;
+    flex-shrink: 0;
+    margin-top: 0.5px;
+    width: 11px;
+  }
+
+  /* SKILL DOTS */
+  .skill-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5mm;
+  }
+
+  .skill-name {
+    font-size: 8pt;
+    color: rgba(244,240,230,0.88);
+    font-weight: 400;
+    flex: 1;
+  }
+
+  .dots {
+    display: flex;
+    gap: 2.5px;
+    flex-shrink: 0;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+
+  .dot.filled { background: var(--fern); }
+  .dot.empty { background: rgba(107,158,114,0.22); }
+
+  .sidebar-footer {
+    margin-top: auto;
+    border-top: 0.5px solid rgba(244,240,230,0.2);
+    padding-top: 4mm;
+  }
+
+  .lang-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 8pt;
+    color: rgba(244,240,230,0.8);
+    margin-bottom: 1.5mm;
+  }
+
+  .lang-level {
+    color: var(--fern);
+    font-size: 7.5pt;
+  }
+
+  /* MAIN CONTENT */
+  .main {
+    padding: 10mm 8mm 8mm 9mm;
+    display: flex;
+    flex-direction: column;
+    gap: 5.5mm;
+  }
+
+  .main-section {}
+
+  .main-section-label {
+    font-size: 6.5pt;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 3mm;
+    padding-bottom: 1.5mm;
+    border-bottom: 1px solid var(--parchment);
+  }
+
+  .summary-text {
+    font-size: 8.8pt;
+    color: var(--muted);
+    line-height: 1.3;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11pt;
+  }
+
+  /* EXPERIENCE ENTRY */
+  .entry {
+    margin-bottom: 3.5mm;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2mm;
+  }
+
+  .entry:last-child { margin-bottom: 0; }
+
+  .entry-title {
+    font-size: 9pt;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .entry-org {
+    font-size: 8pt;
+    color: var(--sage);
+    font-weight: 400;
+  }
+
+  .entry-date {
+    font-size: 7.5pt;
+    color: var(--muted);
+    text-align: right;
+    white-space: nowrap;
+    font-weight: 300;
+    padding-top: 1px;
+  }
+
+  .entry-loc {
+    font-size: 7.5pt;
+    color: rgba(90,90,82,0.7);
+    text-align: right;
+    white-space: nowrap;
+    font-weight: 300;
+  }
+
+  .entry-bullets {
+    grid-column: 1 / -1;
+    margin-top: 1.5mm;
+    padding-left: 8px;
+  }
+
+  .entry-bullets li {
+    font-size: 8.2pt;
+    color: var(--muted);
+    margin-bottom: 1mm;
+    line-height: 1.5;
+    list-style: none;
+    position: relative;
+    padding-left: 10px;
+  }
+
+  .entry-bullets li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--fern);
+    font-size: 8pt;
+  }
+
+  .edu-degree {
+    font-size: 9pt;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .edu-sub {
+    font-size: 8pt;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    margin-top: 1.5mm;
+  }
+
+  .tag {
+    background: var(--parchment);
+    color: var(--moss);
+    font-size: 7pt;
+    padding: 2px 7px;
+    border-radius: 20px;
+    font-weight: 400;
+  }
+
+  .highlight-tag {
+    background: rgba(45,90,64,0.1);
+    color: var(--moss);
+    border: 0.5px solid rgba(45,90,64,0.3);
+  }
+
+  @media print {
+    html, body { width: 210mm; height: 297mm; }
+    .page { page-break-after: avoid; }
+    @page { margin: 0; size: A4; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="name-block">
+      <div class="first">Phemelo M.</div>
+      <div class="last">Rutlokoane</div>
+      <div class="title">Biodiversity &amp; Conservation Biology</div>
+    </div>
+
+    <!-- CONTACT -->
+    <div>
+      <div class="section-label">Contact</div>
+      <div class="contact-item">
+        <span class="contact-icon">✆</span>
+        <a href="tel:+27635219837" style="color:rgba(244,240,230,0.82);text-decoration:none;">063 521 9837</a>
+  </div>
+      <div class="contact-item">
+        <span class="contact-icon">@</span>
+        <a href="mailto:Phemelorutlokoane001@icloud.com" style="color:rgba(244,240,230,0.82);text-decoration:none;">Phemelorutlokoane001@icloud.com</a>
+  </div>
+      <div class="contact-item">
+        <span class="contact-icon">⌂</span>
+        <span>Mapetla, Soweto, 1818</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">↗</span>
+        <a href="https://github.com/Phemelo-R" style="color:rgba(244,240,230,0.82);text-decoration:none;">github.com/Phemelo-R</a>
+  </div>
+    </div>
+
+    <!-- TECHNICAL SKILLS -->
+    <div>
+      <div class="section-label">Technical Skills</div>
+
+      <div style="font-size:7pt;color:rgba(244,240,230,0.5);margin-bottom:3mm;letter-spacing:0.05em;">Programming &amp; Analysis</div>
+
+      <div class="skill-row">
+        <span class="skill-name">R</span>
+        <div class="dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot empty"></div>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Python</span>
+        <div class="dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot empty"></div><div class="dot empty"></div><div class="dot empty"></div><div class="dot empty"></div><div class="dot empty"></div>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Biostatistics</span>
+        <div class="dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot empty"></div><div class="dot empty"></div>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Machine Learning</span>
+        <div class="dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot empty"></div><div class="dot empty"></div><div class="dot empty"></div>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Microsoft Excel</span>
+        <div class="dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot empty"></div><div class="dot empty"></div>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Power BI</span>
+        <div class="dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot empty"></div><div class="dot empty"></div><div class="dot empty"></div>
+        </div>
+      </div>
+
+      <div style="font-size:7pt;color:rgba(244,240,230,0.5);margin:3mm 0 3mm;letter-spacing:0.05em;">Spatial &amp; Remote Sensing</div>
+
+      <div class="skill-row">
+        <span class="skill-name">QGIS</span>
+        <div class="dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Hyperspectral data</span>
+        <div class="dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot empty"></div><div class="dot empty"></div>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">LiDAR data integration</span>
+        <div class="dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot empty"></div><div class="dot empty"></div>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Satellite data (Level 2+)</span>
+        <div class="dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot empty"></div><div class="dot empty"></div><div class="dot empty"></div>
+        </div>
+      </div>
+      
+
+      <div style="font-size:7pt;color:rgba(244,240,230,0.5);margin:3mm 0 3mm;letter-spacing:0.05em;">Scientific Communication</div>
+
+      <div class="skill-row">
+        <span class="skill-name">Jupyter Notebooks</span>
+        <div class="dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot empty"></div>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Quarto</span>
+        <div class="dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot empty"></div><div class="dot empty"></div>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">LaTeX</span>
+        <div class="dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot empty"></div><div class="dot empty"></div><div class="dot empty"></div>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">GitHub</span>
+        <div class="dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot empty"></div><div class="dot empty"></div><div class="dot empty"></div>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Microsoft Word</span>
+        <div class="dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Microsoft Powerpoint</span>
+        <div class="dots">
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LANGUAGES -->
+    <div class="sidebar-footer">
+      <div class="section-label">Languages</div>
+      <div class="lang-row"><span>English</span><span class="lang-level">Fluent</span></div>
+      <div class="lang-row"><span>Sesotho</span><span class="lang-level">Native</span></div>
+      <div class="lang-row"><span>isiZulu</span><span class="lang-level">Conversational</span></div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main">
+
+    <!-- SUMMARY -->
+    <div class="main-section">
+      <div class="summary-text">
+        Recent B.Sc. (Hons) graduate in Biodiversity and Conservation Biology at the University of the Western Cape. Hands‑on experience in
+environmental monitoring, ecological research, GIS, and remote sensing. My Honours research project applied NASA BioSCape’s hyperspectral imaging and LiDAR data to monitor Leucadendron argenteum (Silvertree) populations in Table Mountain National Park, in
+collaboration with the South African Environmental Observation Network (SAEON). Experienced in habitat restoration, biodiversity surveys, and quantitative ecology using R and Python. Proven leadership through undergraduate tutoring and community conservation
+volunteer programmes.
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="main-section">
+      <div class="main-section-label">Education</div>
+
+      <div class="entry">
+        <div>
+          <div class="edu-degree">B.Sc. (Hons) Biodiversity &amp; Conservation Biology</div>
+          <div class="edu-sub">University of the Western Cape · Cape Town</div>
+          <div class="edu-sub" style="margin-top:1.5mm;color:#1b3a2f;font-size:8pt;">
+            Honours Research: Monitoring <em>Leucadendron argenteum</em> populations in Table Mountain National Park using NASA BioSCape hyperspectral imaging and LiDAR data, in collaboration with SAEON.
+          </div>
+        </div>
+        <div>
+          <div class="entry-date">2025</div>
+        </div>
+      </div>
+
+      <div class="entry" style="margin-top:2mm;">
+        <div>
+          <div class="edu-degree">B.Sc. Biodiversity &amp; Conservation Biology</div>
+          <div class="edu-sub">University of the Western Cape · Cape Town</div>
+          <div class="tag-row">
+            <span class="tag">Ecology</span>
+            <span class="tag">Earth Science</span>
+            <span class="tag">Geographic Information Systems</span>
+            <span class="tag">Biostatistics</span>
+            <span class="tag">Ecophysiology</span>
+            <span class="tag">Environmental &amp; Water science</span>
+            <span class="tag">Biodiversity Information Management</span>
+          </div>
+        </div>
+        <div>
+          <div class="entry-date">2021–2024</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="main-section">
+      <div class="main-section-label">Experience</div>
+
+      <div class="entry">
+        <div>
+          <div class="entry-title">Research Volunteer</div>
+          <div class="entry-org">Dept. Biodiversity &amp; Conservation Biology, UWC · Bellville, CT</div>
+        </div>
+        <div>
+          <div class="entry-date">2025</div>
+        </div>
+        <ul class="entry-bullets">
+          <li>Data collection for assessing carbon sinks to quantify habitat health and track ecological restoration progress.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div>
+          <div class="entry-title">Undergraduate Tutor</div>
+          <div class="entry-org">Dept. Biodiversity &amp; Conservation Biology, UWC · Bellville, CT</div>
+        </div>
+        <div>
+          <div class="entry-date">2025</div>
+        </div>
+        <ul class="entry-bullets">
+          <li>Led practical and theory sessions in ecology and biology for classes of 15–25 undergraduate students, developing and delivering accessible scientific content.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div>
+          <div class="entry-title">Conservation Volunteer</div>
+          <div class="entry-org">Cape Flats Nature Reserve · Bellville, Cape Town</div>
+        </div>
+        <div>
+          <div class="entry-date">2022–2024</div>
+        </div>
+        <ul class="entry-bullets">
+          <li>Conducted wildlife and vegetation biodiversity surveys across the reserve, recording species abundance and habitat condition data.</li>
+          <li>Executed alien invasive species clearing and fynbos fire management protocols to support active ecological restoration objectives.</li>
+          <li>Managed plant propagation and nursery maintenance for species conservation programmes.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- KEY COMPETENCIES -->
+    <div class="main-section">
+      <div class="main-section-label">Key Competencies</div>
+      <div class="tag-row">
+        <span class="tag highlight-tag">Biodiversity surveying</span>
+        <span class="tag highlight-tag">Species abundance analysis</span>
+        <span class="tag highlight-tag">Spatial / habitat-use analysis</span>
+        <span class="tag highlight-tag">Large dataset management</span>
+        <span class="tag highlight-tag">Field data collection</span>
+        <span class="tag highlight-tag">Conservation reporting</span>
+        <span class="tag highlight-tag">Scientific communication</span>
+        <span class="tag highlight-tag">Community conservation</span>
+        <span class="tag highlight-tag">Educational content development</span>
+      </div>
+    </div>
+
+    <!-- REFERENCES -->
+    <div class="main-section" style="margin-top:auto;">
+      <div class="main-section-label">References</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4mm;">
+        <div>
+          <div style="font-size:8.5pt;font-weight:500;">Dr Patrick O'Farrell</div>
+          <div style="font-size:7.5pt;color:var(--muted);">Lecturer, Biodiversity &amp; Conservation Biology · UWC</div>
+          <div style="font-size:7.5pt;color:var(--sage);">pofarrell@uwc.ac.za</div>
+        </div>
+        <div>
+          <div style="font-size:8.5pt;font-weight:500;">Prof. Anusha Rajkaran</div>
+          <div style="font-size:7.5pt;color:var(--muted);">Lecturer, Biodiversity &amp; Conservation Biology · UWC</div>
+          <div style="font-size:7.5pt;color:var(--sage);">arajkaran@uwc.ac.za</div>
+        </div>
+        <div style="margin-top:2mm;">
+          <div style="font-size:8.5pt;font-weight:500;">Dawn Faroe</div>
+          <div style="font-size:7.5pt;color:var(--muted);">Tutorial Supervisor · UWC</div>
+          <div style="font-size:7.5pt;color:var(--sage);">faroeskatt@gmail.com</div>
+        </div>
+        <div style="margin-top:2mm;">
+          <div style="font-size:8.5pt;font-weight:500;">Laurenda Van Breda</div>
+          <div style="font-size:7.5pt;color:var(--muted);">Volunteer Co-ordinator · Cape Flats Nature Reserve</div>
+          <div style="font-size:7.5pt;color:var(--sage);">lvanbreda@uwc.ac.za</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
